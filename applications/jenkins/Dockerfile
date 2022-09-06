@@ -1,9 +1,9 @@
-FROM jenkins/jenkins:2.302
+FROM jenkins/jenkins
 USER root
 
 #Pre-Install Jenkins Plugins
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
-RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
+RUN jenkins-plugin-cli --plugin-file /usr/share/jenkins/ref/plugins.txt
 
 #Installing Docker
 RUN apt-get update && apt-get install software-properties-common apt-transport-https ca-certificates -y; \
