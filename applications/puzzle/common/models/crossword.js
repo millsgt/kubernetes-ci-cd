@@ -13,7 +13,7 @@ module.exports = function(Crossword) {
     if (etcdPuzzleResp && !etcdPuzzleResp.err) {
 
       console.log(`Responding with cache`);
-      //fireHit();
+      fireHit();
       var cachedPuzzle = JSON.parse(etcdPuzzleResp.body.node.value);
       cachedPuzzle.fromCache = true;
       cb(null, cachedPuzzle);
