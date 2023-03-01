@@ -5,6 +5,9 @@ metadata:
   labels:
     app: puzzle
 spec:
+  selector:
+    matchLabels:
+      app: puzzle
   strategy:
     type: Recreate
   template:
@@ -51,6 +54,9 @@ metadata:
   labels:
     app: mongo
 spec:
+  selector:
+    matchLabels:
+      app: mongo  
   strategy:
     type: Recreate
   template:
