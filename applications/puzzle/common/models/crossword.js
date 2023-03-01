@@ -13,7 +13,7 @@ module.exports = function(Crossword) {
     if (etcdPuzzleResp && !etcdPuzzleResp.err) {
 
       console.log(`Responding with cache`);
-      //fireHit();
+      fireHit();
       var cachedPuzzle = JSON.parse(etcdPuzzleResp.body.node.value);
       cachedPuzzle.fromCache = true;
       cb(null, cachedPuzzle);
@@ -40,7 +40,7 @@ module.exports = function(Crossword) {
       Crossword.findOne(function (err, crossword) {
 
         // Part 4: Uncomment the next line to enable puzzle pod highlighting when clicking the Submit button
-      fireHit();
+      //fireHit();
         if (err) handleError(err.message, cb);
         for (var j = 0; j < words.length; j++) {
           var word = words[j];
